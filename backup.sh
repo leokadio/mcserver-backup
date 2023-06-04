@@ -22,12 +22,12 @@ log () {
 stopHandling () {
     # injects commands into screen via stuff to notify players, sleeps for graceperiod, stop server and sleeps for hdd spin times
     log "[$currentDay] [$currentTime] Avisando que servidor vai fechar\n"
-    screen -p 0 -X stuff "say Server reiniciando em $gracePeriod!$(printf \\r)"
+    screen -p 0 -X stuff "say Server reiniciando em $gracePeriod!\\r"
     sleep $gracePeriod
-    screen -p 0 -X stuff "say Server reiniciando!$(printf \\r)"
-    screen -p 0 -X stuff "save-all$(printf \\r)"
+    screen -p 0 -X stuff "say Server reiniciando!\\r"
+    screen -p 0 -X stuff "save-all\\r"
     sleep 5
-    screen -p 0 -X stuff "stop$(printf \\r)"
+    screen -p 0 -X stuff "stop\\r"
     sleep 5
 }
  
@@ -69,7 +69,7 @@ log "[$currentDay] [$currentTime] Backup feito.\n"
  
 # Will restart server if it was online upon script start; wont restart server if it was already offline upon script launch
 if $serverRunning; then
-    screen -p 0 -X stuff "$startScript $(printf \\r)"
+    screen -p 0 -X stuff "$startScript \\r"
     log "[$currentDay] [$currentTime] Servidor religado.\n"
 fi
 exit 0
