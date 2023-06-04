@@ -33,25 +33,25 @@ stopHandling () {
  
 # Logs error and cancels script if serverDir isn't found
 if [ ! -d $serverDir ]; then
-    log "[$currentDay] [$currentTime] Error: Server folder not found! Backup has been cancelled. ($serverDir doesnt exist)\n"
+    log "[$currentDay] [$currentTime] Erro: Pasta do server nao encontrada! Backup cancelado. ($serverDir doesnt exist)\n"
     exit 1
 fi
 # Logs error and cancels script if backupDir isn't found
 if [ ! -d $backupDir ]; then
-    log "[$currentDay] [$currentTime] Error: Backup folder not found! Backup has been cancelled. ($backupDir doesnt exist)\n"
+    log "[$currentDay] [$currentTime] Erro: Pasta do backup nao encontrada! Backup cancelado. ($backupDir doesnt exist)\n"
     exit 1
 fi
 # Logs error if java process isn't running but will continue anyways
 if ! ps -e | grep -q "java"; then
-    log "[$currentDay] [$currentTime] Servidor nao esta rodando, logo nao sera fechado. Backup sera feito igual\n"
+    log "[$currentDay] [$currentTime] Erro: Servidor nao esta rodando, logo nao sera fechado. Backup sera feito igual\n"
     serverRunning=false
 fi
  # Logs error if no screen sessions or more than one are running
 if [ $screens -eq 0 ]; then
-    log "[$currentDay] [$currentTime] Error: No screen sessions running! Backup has been cancelled.\n"
+    log "[$currentDay] [$currentTime] Erro: Nao tem screen rodando! Backup cancelado.\n"
     exit 1
 elif [ $screens -gt 1 ]; then
-    log "\n[$currentDay] [$currentTime] Error: More than 1 screen session is running! Backup has been cancelled.\n"
+    log "\n[$currentDay] [$currentTime] Erro: Mais de uma screen rodando! Backup cancelado.\n"
     exit 1
 fi
 # Wont execute stopHandling if server is offline upon script start
@@ -62,8 +62,15 @@ fi
 log "[$currentDay] [$currentTime] Backup iniciado\n"
 zip -r full_backup.zip $serverDir
 
-rm /home/leokadio/s_mc/backup/full_backup.zip
-mv /home/leokadio/s_mc/scripts/full_backup.zip /home/leokadio/s_mc/backup
+rm /home/leokadio/s_mc/backup/full_backup6.zip
+mv /home/leokadio/s_mc/backup/full_backup5.zip /home/leokadio/s_mc/backup/full_backup6.zip
+mv /home/leokadio/s_mc/backup/full_backup4.zip /home/leokadio/s_mc/backup/full_backup5.zip
+mv /home/leokadio/s_mc/backup/full_backup3.zip /home/leokadio/s_mc/backup/full_backup4.zip
+mv /home/leokadio/s_mc/backup/full_backup2.zip /home/leokadio/s_mc/backup/full_backup3.zip
+mv /home/leokadio/s_mc/backup/full_backup1.zip /home/leokadio/s_mc/backup/full_backup2.zip
+mv /home/leokadio/s_mc/backup/full_backup0.zip /home/leokadio/s_mc/backup/full_backup1.zip
+
+mv /home/leokadio/s_mc/scripts/full_backup.zip /home/leokadio/s_mc/backup/full_backup0.zip
 log "[$currentDay] [$currentTime] Backup feito.\n"
 
  
