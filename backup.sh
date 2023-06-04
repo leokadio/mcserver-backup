@@ -63,7 +63,7 @@ log "[$currentDay] [$currentTime] Backup iniciado\n"
 zip -r full_backup.zip $serverDir
 
 rm /home/leokadio/s_mc/backup/full_backup.zip
-mv /home/leokadio/s_mc/scripts/serverbackup-$currentDay.zip /home/leokadio/s_mc/backup  
+mv /home/leokadio/s_mc/scripts/full_backup.zip /home/leokadio/s_mc/backup
 log "[$currentDay] [$currentTime] Backup feito.\n"
 
  
