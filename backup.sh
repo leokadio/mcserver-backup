@@ -17,7 +17,7 @@ serverRunning=true
  
 log () {
     # Echos text passed to function and appends to file at same time
-    builtin echo -e "$@" | tee -a backup_log.txt
+    builtin echo -e "$@" | tee -a log.txt
 }
 stopHandling () {
     # injects commands into screen via stuff to notify players, sleeps for graceperiod, stop server and sleeps for hdd spin times
