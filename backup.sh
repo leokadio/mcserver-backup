@@ -5,7 +5,7 @@ https://github.com/J-Bentley/mc-backup.sh'
  
 serverDir="/home/leokadio/s_mc/live"
 backupDir="/home/leokadio/s_mc/backup"
-startScript="bash boot.sh"
+startScript="bash /home/leokadio/s_mc/scripts/boot.sh"
 gracePeriod="1m"
 serverWorlds=("world" "world_nether" "world_the_end")
 # Don't change anything past this line unless you know what you're doing.
